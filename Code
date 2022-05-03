@@ -1,0 +1,59 @@
+typedef struct node{
+    //i want to represent polynomials,data = coeficient,n = i(x**i)
+    int data;
+    int n;
+    struct node *next;
+}node;
+
+//a lista e um pointer para o 1 node
+
+typedef struct node *p_node;
+
+p_node cirar(lista){
+   lista = NULL;
+   return lista;
+}
+
+p_node add(p_node a,int x,int i){
+    p_node p;
+    p->data = x;
+    p->n = i;
+    p->next = a;
+    return p;
+}
+
+void remov(p_node a,int i){
+    p_node ant,p;
+    if(a->n == i){
+        p = a;
+        a = a->next;
+        free(p);
+    }
+    while(ant != NULL){
+        p = ant->next;
+        if(p->n == i){
+            ant->next = p->next;
+            free(p);
+        }
+        ant = ant->next;
+    }
+}
+
+p_node pol_sum(p_node a,p_node b){
+    p_node pa = a;
+    p_node pb = b;
+    p_node pc;
+    while(pa != NULL && pb != NULL){
+        if(pa->n == pb->n){
+            pc->n = pa->n;
+            pc->data = pa->data + pb->data;
+        }
+        pa = pa->next;
+        pb = pb->next;
+        pc = pc->next;
+    }
+    return pc;
+
+}
+
+
